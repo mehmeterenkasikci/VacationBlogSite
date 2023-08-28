@@ -13,7 +13,7 @@ namespace TravelTripProje.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var degerler = c.Blogs.Take(4).ToList();
+            var degerler = c.Blogs.OrderByDescending(x=>x.ID).Take(4).ToList();
             return View(degerler);
         }
         
@@ -33,7 +33,7 @@ namespace TravelTripProje.Controllers
         }
         public PartialViewResult Partial3()
         {
-            var deger = c.Blogs.ToList();
+            var deger = c.Blogs.Take(10).ToList();
             return PartialView(deger);
         }
         public PartialViewResult Partial4()
